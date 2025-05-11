@@ -1,9 +1,130 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Mi primera página</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Feliz Día, Mamá!</title>
+    <style>
+        body {
+            font-family: 'Calibri', cursive;
+            text-align: center;
+            background: #ffe6f2;
+            padding: 50px 20px;
+            margin: 0;
+        }
+        
+        h1 {
+            color: #ff69b4;
+            font-size: 60px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            animation: titulo 2s infinite;
+            margin: 30px 0;
+        }
+        
+        .contenido {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        img {
+            width: 100%;
+            max-width: 600px;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin: 20px 0;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+        
+        p {
+            font-size: 24px;
+            color: #333;
+            line-height: 1.6;
+            margin: 40px 0;
+            padding: 0 20px;
+        }
+        
+        @keyframes titulo {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        #boton-musica {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #ff69b4;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 18px;
+            z-index: 100;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 40px;
+            }
+            
+            img {
+                height: 300px;
+            }
+            
+            p {
+                font-size: 20px;
+                margin: 30px 0;
+            }
+            
+            body {
+                padding: 30px 10px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>¡Hola mundo desde GitHub Pages!</h1>
+    <h1>¡Feliz Día, Mamá! 🌷</h1>
+    
+    <div class="contenido">
+        <img src="https://i.imgur.com/tWdWBYJ.jpeg" alt="Nuestra foto especial">
+        <p>Mamá, cada vez que te veo sonreír así, mi corazón se llena de alegría. Eres la luz que ilumina mis días y la fuerza que me impulsa a ser mejor.</p>
+        
+        <img src="imagenes/foto2.jpg" alt="Momento divertido">
+        <p>Recuerdo cuando... (escribe aquí tu anécdota favorita). Gracias por convertir los momentos simples en recuerdos inolvidables.</p>
+        
+        <img src="imagenes/foto3.jpg" alt="Abrazo de amor">
+        <p>Tus abrazos son mi refugio seguro. En tus brazos encuentro la paz y el amor que necesito para enfrentar cualquier desafío.</p>
+        
+        <img src="imagenes/foto4.jpg" alt="Aventuras juntos">
+        <p>Gracias por enseñarme que el amor verdadero no tiene límites. Eres mi ejemplo a seguir y mi heroína personal.</p>
+        
+        <img src="imagenes/foto5.jpg" alt="Familia unida">
+        <p>Por todo lo que has hecho, por todo lo que eres, y por todo lo que significas para mí... ¡Gracias por ser la mejor mamá del mundo!</p>
+    </div>
+
+    <audio id="musica" loop>
+        <source src="musica/cancion.mp3" type="audio/mpeg">
+    </audio>
+
+    <button id="boton-musica" onclick="togglePlay()">
+        🎵 Reproducir música
+    </button>
+
+    <script>
+        function togglePlay() {
+            const musica = document.getElementById('musica');
+            const boton = document.getElementById('boton-musica');
+            if (musica.paused) {
+                musica.play();
+                boton.textContent = '⏸️ Pausar música';
+            } else {
+                musica.pause();
+                boton.textContent = '🎵 Reproducir música';
+            }
+        }
+    </script>
 </body>
 </html>
